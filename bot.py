@@ -2,10 +2,12 @@ import pickle
 from logger import log_message
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
-
+import os
 # Load trained AI model
 model = pickle.load(open("model.pkl","rb"))
 vectorizer = pickle.load(open("vectorizer.pkl","rb"))
+
+TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 def analyze_message(text):
     vec = vectorizer.transform([text])
@@ -42,8 +44,6 @@ def analyze_message(text):
     final_score = min(ai_prob + rule_score, 1)
     return final_score, category, reasons
 
-
-TOKEN = "7953905477:AAGaWhv7PweLghDZMEbc2m1T7P2vyn7Rbfs"
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = update.message.text
