@@ -1,5 +1,11 @@
 # ScamPulse – Community Fraud Early Warning System
+## Live Demo
 
+### Telegram Safety Response
+![Bot Demo](bot.png)
+
+### Community Fraud Dashboard
+![Dashboard](dashboard.png)
 ScamPulse is a real-time digital fraud awareness platform designed to help users identify scam SMS or WhatsApp messages before they act on them.
 
 Users forward suspicious messages to a Telegram bot.  
